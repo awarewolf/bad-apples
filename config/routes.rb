@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
 
-  get 'users/new'
+  get 'sessions/new'
 
-  get 'users/create'
+  get 'sessions/create'
+
+  # get 'users/new'
+
+  # get 'users/create'
 
   resources :movies
   resources :users, only: [:new, :create]
+  resources :sessions, only: [:new, :create]
 
 end
