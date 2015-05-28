@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
+
   protected
 
   def restrict_access
@@ -17,5 +19,12 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :current_user
+
+  private
+
+  def record_not_found
+    flash[:alert] = "The record you were looking for was not found."
+    redirect_to root_url
+  end
 
 end
