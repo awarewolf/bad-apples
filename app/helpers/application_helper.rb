@@ -19,4 +19,10 @@ module ApplicationHelper
     request.path.starts_with? url
   end
 
+  def paginate objects, options = {}
+    options.reverse_merge!( theme: 'twitter-bootstrap-3' )
+
+    super( objects, options )
+  end
+
 end

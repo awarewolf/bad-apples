@@ -26,12 +26,12 @@ class Movie < ActiveRecord::Base
     reviews.sum(:rating_out_of_ten)/reviews.size
   end
 
-  protected
+  def average_rating
+    @average_rating ||= reviews.average(:rating_out_of_ten).to_f.round()
+  end
 
-  # def release_date_is_in_the_future
-  #   if release_date.present?
-  #     errors.add(:release_date, "should probably be in the future") if release_date < Date.today
-  #   end
-  # end
+  def latest_reviews(count=3)
+    reviews.order(:created_at).limit(count).includes(:user)
+  end
 
 end

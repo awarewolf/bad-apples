@@ -10,10 +10,17 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
  *= require_self
+ *= require_bootstrap_and_overrides
+ *= require_movies
+ *= require_reviews
+ *= require_users
  */
 
 @import "bootswatch/darkly/variables";
 @import "bootstrap";
 @import "bootswatch/darkly/bootswatch";
+
+body {
+  margin-top: 100px
+}

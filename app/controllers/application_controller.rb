@@ -26,7 +26,6 @@ class ApplicationController < ActionController::Base
   end
 
   def admin?
-    # binding.pry
     @current_user.admin if current_user
   end
 

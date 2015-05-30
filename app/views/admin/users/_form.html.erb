@@ -32,6 +32,10 @@
         <%= f.label "password_confirmation" %><br>
         <%= f.password_field "password_confirmation", class: "form-control", placeholder: "Enter user password confirmation" %>
       </div>
+      <div class="form-group">
+        <%= f.label "admin" %><br>
+        <%= f.check_box "admin", class: "checkbox", placeholder: "Specify if this user has administrator status" %>
+      </div>
       <div class="actions">
         <%= f.submit class: "btn btn-default" %>
       </div>

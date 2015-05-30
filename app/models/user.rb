@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
 
   has_many :reviews
 
+  paginates_per 10
+
   has_secure_password
 
   validates :email,

@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
 
-  resources :movies do
-    resources :reviews, only: [:new, :create]
+  concern :paginatable do
+  get '(page/:page)', action: :index, on: :collection, as: ''
+  end
+
+  resources :movies, concerns: :paginatable do
+    resources :reviews, :concerns => :paginatable
   end
   namespace :admin do
-    resources :users
+    resources :users, concerns: :paginatable
   end
 
   resources :users, only: [:new, :create]

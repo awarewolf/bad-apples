@@ -44,4 +44,12 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'debugger', group: [:development, :test]
 gem 'pry-rails'
 gem 'carrierwave'
-gem "mini_magick"
+gem 'mini_magick'
+gem 'kaminari'
+gem 'bootstrap-kaminari-views'
+
+gem 'better_errors'
+gem 'binding_of_caller'
+gem 'meta_request'
+gem 'ffaker', git: "https://github.com/EmmanuelOga/ffaker"
+
