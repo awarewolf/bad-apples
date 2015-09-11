@@ -1,5 +1,7 @@
 class Movie < ActiveRecord::Base
 
+  paginates_per 4
+
   has_many :reviews
 
   mount_uploader :image, ImageUploader
@@ -18,8 +20,6 @@ class Movie < ActiveRecord::Base
 
   validates :release_date,
     presence: true
-
-  # validate :release_date_is_in_the_future
 
   def review_average
     return 0 if reviews.size == 0

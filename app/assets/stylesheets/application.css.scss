@@ -24,3 +24,52 @@
 body {
   margin-top: 100px
 }
+
+nav img {
+  max-width:100px;
+  margin-top: -30px;
+}
+
+.movie-title {
+  text-align: center;
+  padding: 10px;
+}
+
+.movie-rating {
+  text-align: center;
+  margin-left: 15%;
+}
+
+.apple {
+  height: 30px;
+  float: left;
+  .bad {
+    content:url(https://upload.wikimedia.org/wikipedia/commons/d/dc/Apple_with_worm_dan_gerh_01.svg);
+  }
+  .fresh {
+    content:url(https://upload.wikimedia.org/wikipedia/commons/2/20/Apple_unbitten.svg);
+  }
+
+
+}
+
+.bad-apple{
+  content:url(https://upload.wikimedia.org/wikipedia/commons/d/dc/Apple_with_worm_dan_gerh_01.svg);
+  height: 30px;
+  float: left;
+}
+
+.fresh-apple{
+  content:url(https://upload.wikimedia.org/wikipedia/commons/2/20/Apple_unbitten.svg);
+  height: 30px;
+  float: left;
+}
+
+.rating {
+    width: 80%;
+    margin: auto;
+}
+
+* {
+  border: 1px solid;
+}

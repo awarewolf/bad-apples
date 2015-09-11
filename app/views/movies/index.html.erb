@@ -1,10 +1,11 @@
-<h1>Rotten Mangoes</h1>
+<!-- <h1>Bad Apples</h1> -->
+<h1><img alt="Bad Apples" src="/assets/bad_apples_text.png"/></h1>
 <%= link_to "Submit a movie!", new_movie_path %>
 <hr>
-
 <%= render @movies %>
 <hr>
 
-<div class="btn-toolbar">
+
+<div class="pagination">
   <%= paginate @movies %>
 </div>

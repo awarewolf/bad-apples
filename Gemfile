@@ -27,6 +27,10 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  # gem 'meta_request'
+  gem 'ffaker', git: "https://github.com/EmmanuelOga/ffaker"
   gem 'spring'
   gem 'quiet_assets'
 end
@@ -47,9 +51,3 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'
-
-gem 'better_errors'
-gem 'binding_of_caller'
-gem 'meta_request'
-gem 'ffaker', git: "https://github.com/EmmanuelOga/ffaker"
-
