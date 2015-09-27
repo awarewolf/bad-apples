@@ -1,6 +1,6 @@
 class Movie < ActiveRecord::Base
 
-  paginates_per 4
+  scope :search, ->(query) {where("title like ? OR director like ? OR description like ?", "%#{query}%", "%#{query}%", "%#{query}%")}
 
   has_many :reviews
 

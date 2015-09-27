@@ -1,11 +1,22 @@
-<!-- <h1>Bad Apples</h1> -->
-<h1><img alt="Bad Apples" src="/assets/bad_apples_text.png"/></h1>
-<%= link_to "Submit a movie!", new_movie_path %>
-<hr>
-<%= render @movies %>
-<hr>
+<div class='page-header'>
+  <div class="row">
+    <div class="col-md-6">
+      <h1>Movies</h1>
+    </div>
+    <div class="col-md-5">
+      <% if current_user %>
+        <%= link_to "Submit a movie!", new_movie_path, class: "btn btn-default pull-right" %>
+      <% end %>
+    </div>
+  </div>
+</div>
 
+<div class="row">
+  <%= render @movies %>
+</div>
 
-<div class="pagination">
-  <%= paginate @movies %>
+<div class="pagination-wrapper">
+  <div class="pagination">
+    <%= paginate @movies %>
+  </div>
 </div>

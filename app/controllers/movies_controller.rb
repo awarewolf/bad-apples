@@ -1,7 +1,16 @@
 class MoviesController < ApplicationController
 
   def index
-    @movies = Movie.all.page(params[:page]).per(5)
+
+    @movies = Movie.all
+
+    if params['search']
+      @movies = @movies.search(params['search'])
+    end
+
+    ordered_movies = @movies.sort_by { |movie| movie.average_rating }.reverse
+    @movies = Kaminari.paginate_array(ordered_movies).page(params[:page]).per(8)
+
   end
 
   def show
@@ -45,7 +54,7 @@ class MoviesController < ApplicationController
 
   def movie_params
     params.require(:movie).permit(
-      :title, :release_date, :director, :runtime_in_minutes, :poster_image_url, :description, :image
+      :title, :release_date, :director, :runtime_in_minutes, :poster_image_url, :description, :image, :search
     )
   end
 

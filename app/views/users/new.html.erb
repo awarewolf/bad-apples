@@ -1,34 +1,18 @@
-<h1>Sign Up</h1>
-<%= form_for @user do |f| %>
-  <% if @user.errors.any? %>
-    <div>
-      <%= pluralize(@user.errors.count, "error") %> prevented the account from being created:
-      <ul>
-        <% @user.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div>
-    <%= f.label "email" %><br>
-    <%= f.text_field "email" %>
+<div class="row">
+  <div class="col-md-3 col-sm-1">
   </div>
-  <div>
-    <%= f.label "firstname", "First Name" %><br>
-    <%= f.text_field "firstname" %>
+  <div class="col-md-6 col-sm-10">
+    <h1>Sign Up</h1>
+    <%= bootstrap_form_for(@user) do |f| %>
+      <%= f.text_field :firstname, label: "First Name" %>
+      <%= f.text_field :lastname, label: "Last Name" %>
+      <%= f.email_field :email %>
+      <%= f.password_field :password %>
+      <%= f.password_field :password_confirmation %>
+      <%# f.check_box :remember_me %>
+      <%= f.submit "Sign Up" %>
+    <% end %>
   </div>
-  <div>
-    <%= f.label "lastname", "Last Name" %><br>
-    <%= f.text_field "lastname" %>
+  <div class="col-md-3 col-sm-1">
   </div>
-  <div>
-    <%= f.label "password" %><br>
-    <%= f.password_field "password" %>
-  </div>
-  <div>
-    <%= f.label "password_confirmation" %><br>
-    <%= f.password_field "password_confirmation" %>
-  </div>
-  <div><%= f.submit "Submit" %></div>
-<% end %>
+</div>

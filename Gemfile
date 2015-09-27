@@ -46,6 +46,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+gem 'bootstrap_form'
+gem 'pry'
 gem 'pry-rails'
 gem 'carrierwave'
 gem 'mini_magick'
