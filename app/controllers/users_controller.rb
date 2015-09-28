@@ -8,10 +8,24 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      session[:user_id] = @user.id
-      redirect_to movies_path, notice: "Welcome aboard, #{@user.firstname}!"
+      UserMailer.registration_confirmation(@user).deliver
+      flash[:success] = "Please confirm your email address to continue"
+      redirect_to root_url
     else
-      render :new
+      flash[:error] = "Ooooppss, something went wrong!"
+      render 'new'
+    end
+  end
+
+  def confirm_email
+    user = User.find_by_confirm_token(params[:id])
+    if user
+      user.email_activate
+      flash[:success] = "Welcome to the Bad Apples! Your email has been confirmed. Please sign in to continue."
+      redirect_to new_session_url
+    else
+      flash[:error] = "Sorry. User does not exist"
+      redirect_to root_url
     end
   end
 

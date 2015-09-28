@@ -11,8 +11,14 @@ Rails.application.routes.draw do
     resources :users, concerns: :paginatable
   end
 
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create] do
+    member do
+      get :confirm_email
+    end
+  end
+
   resources :sessions, only: [:new, :create, :destroy]
+
   root 'movies#index'
 
 end
