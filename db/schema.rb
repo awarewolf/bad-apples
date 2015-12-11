@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150927235254) do
+ActiveRecord::Schema.define(version: 20151201212308) do
 
   create_table "movies", force: true do |t|
     t.string   "title"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20150927235254) do
     t.boolean  "admin"
     t.boolean  "email_confirmed", default: false
     t.string   "confirm_token"
+    t.string   "salt"
   end
 
 end

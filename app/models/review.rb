@@ -19,4 +19,11 @@
   validates :rating_out_of_ten,
     numericality: { less_than_or_equal_to: 10 }
 
+    before_save :update_average_rating
+
+    private
+    def update_average_rating
+      #FIXME: FINISH ME
+    end
+
 end

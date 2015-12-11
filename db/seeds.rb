@@ -28,7 +28,7 @@ Review.delete_all
     director: Faker::Name.name,
     runtime_in_minutes: rand(90..160),
     release_date: rand(32289).days.ago.to_date,
-    image: open("http://lorempixel.com/400/600/"),
+    # image: open("http://lorempixel.com/400/600/"),
     description: Faker::DizzleIpsum.paragraphs.join(" ")
   )
   rand(0..30).times do

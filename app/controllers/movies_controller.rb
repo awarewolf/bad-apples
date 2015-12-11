@@ -2,7 +2,7 @@ class MoviesController < ApplicationController
 
   def index
 
-    @movies = Movie.all
+    @movies = Movie.includes(:reviews).all
 
     if params['search']
       @movies = @movies.search(params['search'])

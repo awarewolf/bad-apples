@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   end
 
   def create
+    # binding.pry
     @user = User.new(user_params)
 
     if @user.save
@@ -18,9 +19,11 @@ class UsersController < ApplicationController
   end
 
   def confirm_email
+    # binding.pry
     user = User.find_by_confirm_token(params[:id])
     if user
       user.email_activate
+      sign_in user
       flash[:success] = "Welcome to the Bad Apples! Your email has been confirmed. Please sign in to continue."
       redirect_to new_session_url
     else
